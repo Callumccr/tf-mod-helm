@@ -1,0 +1,107 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: tf-mod-helm
+
+# Canonical GitHub repo
+github_repo: https://github.com/Callumccr/tf-mod-helm
+
+# Short description of this project
+description: |-
+  A Terraform Module for using the Helm provider. This is used to deploy software packages in Kubernetes. The provider needs to be configured with the proper credentials before it can be used.
+
+# How to use this project
+usage: |-
+  The below values shown in the usage of this module are purely representative, please replace desired values as required.
+  ```hcl
+  module "tf-mod-helm" {
+    source                      = "git::https://github.com/Callumccr/tf-mod-helm.git?ref=master"
+    enabled                     = true
+    chart_repository_name       = "stable"
+    chart_repository_url        = "https://kubernetes-charts.storage.googleapis.com"
+    chart                       = "redis"
+    version                     = "6.0.1"
+    values                      = [
+                                    "${file("values.yaml")}"
+                                  ]
+    set                         = [
+                                    {
+                                      name  = "cluster.enabled"
+                                      value = "true"
+                                    },
+                                    {
+                                      name  = "metrics.enabled"
+                                      value = "true"
+                                    }
+                                  ]
+    set_string                  = [
+                                    {
+                                      name  = "service.annotations.prometheus\\.io/port"
+                                      value = "9127"
+                                    }
+                                  ]
+    set_sensitive               = [
+                                    {
+                                      name  = "username"
+                                      value = "password"
+                                    }
+                                  ]
+  }
+  ```
+include:
+  - "docs/terraform.md"
+
+
+# Introduction to the project
+introduction: |-
+  The module provisions the following resources:
+    - `helm_release` describes the desired status of a chart in a kubernetes cluster.
+      - A Release is an instance of a chart running in a Kubernetes cluster. A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
+    - `helm_repository` describes a helm repository.
+      - A chart repository is a location where packaged charts can be stored and shared.
+
+  **IMPORTANT:** 
+    - The module has many flags and arugments to pass as variables for the `helm_release`, and `helm_repository`. Please check the `variables.tf` in this repository for more information.
+
+examples: |-
+  ### Advanced Example 1
+
+  The following example generates a EKS managed node group and deploys and annotates pods with a helm chart to deploy into those respective workers exclusively.
+
+  TO-DO
+
+  ```hcl
+  ```
+  
+
+# Related projects
+related:
+  - name:
+    description:
+    url:
+
+# References
+references:
+  - name: "Helm Provider For Terraform"
+    description: "The Helm provider is used to deploy software packages in Kubernetes"
+    url: "https://www.terraform.io/docs/providers/helm/index.html"
+
+# Contributor information
+contributors:
+  - name: "Callum Robertson"
+    github: "callumccr"
+    avatar: https://media-exp1.licdn.com/dms/image/C5603AQHb_3oZMZA5YA/profile-displayphoto-shrink_200_200/0?e=1588809600&v=beta&t=5QQQAlHrm1od5fQNZwdjOtbZWvsGcgNBqFRhZWgnPx4
+    homepage: https://www.linkedin.com/in/callum-robertson-1a55b6110/
+
+# Jira information
+jira:
+  - project:
+    project_url:
+    epic: 
+    epic_url:
+    user_story: 
+    user_story_url:
