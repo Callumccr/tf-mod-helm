@@ -60,31 +60,31 @@ variable "chart_repository_url" {
 
 variable "key_file" {
   description = "(Optional) Identify HTTPS client using this SSL key file"
-  type        = any
+  type        = string
   default     = ""
 }
 
 variable "cert_file" {
   description = "(Optional) Identify HTTPS client using this SSL certificate file"
-  type        = any
+  type        = string
   default     = ""
 }
 
 variable "ca_file" {
   description = "(Optional) Verify certificates of HTTPS-enabled servers using this CA bundle"
-  type        = any
+  type        = string
   default     = ""
 }
 
 variable "username" {
   description = "(Optional) Username for HTTP basic authentication"
-  type        = any
+  type        = string
   default     = ""
 }
 
 variable "password" {
   description = "(Optional) Password for HTTP basic authentication"
-  type        = any
+  type        = string
   default     = ""
 }
 
@@ -103,7 +103,7 @@ variable "chart" {
 
 variable "repository" {
   description = "(Optional) Repository where to locate the requested chart. If is an URL the chart is installed without install the repository"
-  type        = any
+  type        = string
   default     = ""
 }
 
@@ -121,7 +121,7 @@ variable "chart_version" {
 
 variable "values" {
   description = "(Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options"
-  type        = any
+  type        = list(any)
   default     = []
 }
 
@@ -169,7 +169,7 @@ variable "set_string" {
 
 variable "namespace" {
   description = "(Optional) Namespace to install the release into"
-  type        = any
+  type        = string
   default     = ""
 }
 
@@ -181,7 +181,7 @@ variable "verify" {
 
 variable "keyring" {
   description = "(Optional) Location of public keys used for verification"
-  type        = any
+  type        = string
   default     = ""
 }
 
@@ -199,7 +199,7 @@ variable "disable_webhooks" {
 
 variable "reuse_values" {
   description = "(Optional) Reuse values from previous revision when upgrading a release. Same as --reuse-values flag in Helm CLI. Default is false"
-  type        = any
+  type        = bool
   default     = false
 }
 
