@@ -36,8 +36,8 @@
 | set\_string | (Optional) Value block with custom STRING values to be merged with the values yaml | <code><pre>list(object({<br>    name  = string<br>    value = string<br>  }))<br></pre></code> | <code><pre>[<br>  {<br>    "name": "",<br>    "value": ""<br>  }<br>]<br></pre></code> | no |
 | timeout | (Optional) Time in seconds to wait for any individual kubernetes operation | `number` | `30` | no |
 | username | (Optional) Username for HTTP basic authentication | `string` | `""` | no |
-| values | (Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options | `list` | `[]` | no |
-| verify | (Optional) Verify the package before installing it | `bool` | `true` | no |
+| values | (Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options | `list(any)` | `[]` | no |
+| verify | (Optional) Verify the package before installing it | `bool` | `false` | no |
 | wait | (Optional) Will wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment are in a ready state before marking the release as successful. It will wait for as long as timeout. Default is true | `bool` | `false` | no |
 
 ## Outputs
