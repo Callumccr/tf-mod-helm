@@ -1,7 +1,7 @@
 resource "helm_release" "default" {
   count      = var.enabled ? 1 : 0
   name       = var.release_name
-  repository = var.chart_repository_url != "" ? var.make : ""
+  repository = var.chart_repository_url != "" ? var.chart_repository_url : ""
   chart      = var.chart
   devel      = var.devel
   version    = var.chart_version
