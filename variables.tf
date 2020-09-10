@@ -37,10 +37,10 @@ variable "kubeconfig_path" {
   description = "The path to `kubeconfig` file"
 }
 
-variable "kubeconfig_context" {
-  type        = string
-  description = "(Required) The context to use from the `kubeconfig` file"
-}
+# variable "kubeconfig_context" {
+#   type        = string
+#   description = "(Required) The context to use from the `kubeconfig` file"
+# }
 
 variable "tiller_service_account" {
   type        = string
