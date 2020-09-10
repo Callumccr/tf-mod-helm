@@ -43,11 +43,7 @@ variable "kubeconfig_context" {
   default     = ""
 }
 
-variable "tiller_service_account" {
-  type        = string
-  default     = "helm-tiller"
-  description = "The name of the service account for tiller"
-}
+//
 
 
 variable "chart_repository_name" {
@@ -103,43 +99,43 @@ variable "chart" {
 }
 
 
-# variable "repository" {
-#   description = "(Optional) Repository where to locate the requested chart. If is an URL the chart is installed without install the repository"
-#   type        = any
-#   default     = ""
-# }
+variable "repository" {
+  description = "(Optional) Repository where to locate the requested chart. If is an URL the chart is installed without install the repository"
+  type        = any
+  default     = ""
+}
 
-# variable "devel" {
-#   description = "(Optional) Use chart development versions, too. Equivalent to version '>0.0.0-0'. If version is set, this is ignored"
-#   type        = bool
-#   default     = false
-# }
+variable "devel" {
+  description = "(Optional) Use chart development versions, too. Equivalent to version '>0.0.0-0'. If version is set, this is ignored"
+  type        = bool
+  default     = false
+}
 
-# variable "chart_version" {
-#   description = "(Optional) Specify the exact chart version to install. If this is not specified, the latest version is installed"
-#   type        = string
-#   default     = "1.8.4"
-# }
+variable "chart_version" {
+  description = "(Optional) Specify the exact chart version to install. If this is not specified, the latest version is installed"
+  type        = string
+  default     = "1.8.4"
+}
 
-# variable "values" {
-#   description = "(Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options"
-#   type        = any
-#   default     = []
-# }
+variable "values" {
+  description = "(Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options"
+  type        = any
+  default     = []
+}
 
-# variable "set" {
-#   description = "(Optional) Value block with custom values to be merged with the values yaml"
-#   type = list(object({
-#     name  = string
-#     value = string
-#   }))
-#   default = [
-#     {
-#       name  = ""
-#       value = ""
-#     }
-#   ]
-# }
+variable "set" {
+  description = "(Optional) Value block with custom values to be merged with the values yaml"
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = [
+    {
+      name  = ""
+      value = ""
+    }
+  ]
+}
 
 variable "set_sensitive" {
   description = "(Optional) Value block with custom sensitive values to be merged with the values yaml that won't be exposed in the plan's diff"
