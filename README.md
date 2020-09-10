@@ -164,7 +164,6 @@ TO-DO
 | reuse\_values | (Optional) Reuse values from previous revision when upgrading a release. Same as --reuse-values flag in Helm CLI. Default is false | `bool` | `false` | no |
 | set | (Optional) Value block with custom values to be merged with the values yaml | <code><pre>list(object({<br>    name  = string<br>    value = string<br>  }))<br></pre></code> | <code><pre>[<br>  {<br>    "name": "",<br>    "value": ""<br>  }<br>]<br></pre></code> | no |
 | set\_sensitive | (Optional) Value block with custom sensitive values to be merged with the values yaml that won't be exposed in the plan's diff | <code><pre>list(object({<br>    name  = string<br>    value = string<br>  }))<br></pre></code> | <code><pre>[<br>  {<br>    "name": "",<br>    "value": ""<br>  }<br>]<br></pre></code> | no |
-| set\_string | (Optional) Value block with custom STRING values to be merged with the values yaml | <code><pre>list(object({<br>    name  = string<br>    value = string<br>  }))<br></pre></code> | <code><pre>[<br>  {<br>    "name": "",<br>    "value": ""<br>  }<br>]<br></pre></code> | no |
 | timeout | (Optional) Time in seconds to wait for any individual kubernetes operation | `number` | `30` | no |
 | username | (Optional) Username for HTTP basic authentication | `string` | `""` | no |
 | values | (Optional) List of values in raw yaml to pass to helm. Values will be merged, in order, as Helm does with multiple -f options | `list(any)` | `[]` | no |
