@@ -176,7 +176,7 @@ variable "namespace" {
 variable "verify" {
   description = "(Optional) Verify the package before installing it"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "keyring" {
