@@ -31,13 +31,15 @@ resource "helm_release" "default" {
     }
   }
 
-  namespace        = var.namespace
-  verify           = var.verify
-  keyring          = var.keyring
-  timeout          = var.timeout
-  disable_webhooks = var.disable_webhooks
-  reuse_values     = var.reuse_values
-  force_update     = var.force_update
-  recreate_pods    = var.recreate_pods
-  wait             = var.wait
+  namespace           = var.namespace
+  verify              = var.verify
+  keyring             = var.keyring
+  timeout             = var.timeout
+  disable_webhooks    = var.disable_webhooks
+  reuse_values        = var.reuse_values
+  force_update        = var.force_update
+  recreate_pods       = var.recreate_pods
+  wait                = var.wait
+  repository_username = var.username
+  repository_password = var.password
 }
