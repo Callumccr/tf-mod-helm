@@ -209,12 +209,6 @@ variable "force_update" {
   default     = true
 }
 
-variable "reuse" {
-  description = "(Optional) Instructs Tiller to re-use an existing name. Default is true"
-  type        = bool
-  default     = true
-}
-
 variable "recreate_pods" {
   description = "(Optional) On update performs pods restart for the resource if applicable"
   type        = bool

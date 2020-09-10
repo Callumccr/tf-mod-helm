@@ -38,7 +38,6 @@ resource "helm_release" "default" {
   disable_webhooks = var.disable_webhooks
   reuse_values     = var.reuse_values
   force_update     = var.force_update
-  reuse            = var.reuse
   recreate_pods    = var.recreate_pods
   wait             = var.wait
 }
