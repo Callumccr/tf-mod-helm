@@ -1,7 +1,7 @@
 resource "helm_release" "default" {
   count      = var.enabled ? 1 : 0
   name       = var.release_name
-  repository = var.chart_repository_url != "" ? var.chart_repository_url : ""
+  repository = var.chart_repository_url != "" ? var.make : ""
   chart      = var.chart
   devel      = var.devel
   version    = var.chart_version
@@ -31,7 +31,7 @@ resource "helm_release" "default" {
     }
   }
 
-  namespace           = var.namespace
+  namespace           = var.k8s_namespace
   verify              = var.verify
   keyring             = var.keyring
   timeout             = var.timeout

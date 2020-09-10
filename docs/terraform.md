@@ -21,11 +21,11 @@
 | disable\_webhooks | (Optional) Prevent hooks from running | `bool` | `false` | no |
 | enabled | (Optional). A Switch that decides whether to create the module. Default is true | `bool` | `true` | no |
 | force\_update | (Optional) Force resource update through delete/recreate if needed | `bool` | `true` | no |
+| k8s\_namespace | (Optional) Namespace to install the release into | `string` | `""` | no |
 | key\_file | (Optional) Identify HTTPS client using this SSL key file | `string` | `""` | no |
 | keyring | (Optional) Location of public keys used for verification | `string` | `""` | no |
 | kubeconfig\_context | (Required) The context to use from the `kubeconfig` file | `string` | `""` | no |
 | kubeconfig\_path | The path to `kubeconfig` file | `string` | `"~/.kube/config"` | no |
-| namespace | (Optional) Namespace to install the release into | `string` | `""` | no |
 | password | (Optional) Password for HTTP basic authentication | `string` | `""` | no |
 | recreate\_pods | (Optional) On update performs pods restart for the resource if applicable | `bool` | `false` | no |
 | release\_name | (Required) Release name | `string` | `""` | no |
@@ -42,8 +42,5 @@
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| helm\_release\_metadata | Status of the deployed release. This includes the chart name, name of the release, kubernetes namespace, version of the release, status of the release, version of the chart, and compounded values from 'values' and 'set\*' attributes |
-| helm\_repository\_metadata | Status of the deployed release. This includes the name and the URL of the repository read from the home |
+No output.
 

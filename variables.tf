@@ -167,7 +167,7 @@ variable "set_string" {
   ]
 }
 
-variable "namespace" {
+variable "k8s_namespace" {
   description = "(Optional) Namespace to install the release into"
   type        = string
   default     = ""
