@@ -15,14 +15,6 @@ resource "helm_release" "default" {
     }
   }
 
-  dynamic "set_string" {
-    for_each = var.set_string
-    content {
-      name  = set_string.value["name"]
-      value = set_string.value["value"]
-    }
-  }
-
   dynamic "set_sensitive" {
     for_each = var.set_sensitive
     content {

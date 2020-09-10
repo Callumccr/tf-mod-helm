@@ -153,20 +153,6 @@ variable "set_sensitive" {
   ]
 }
 
-variable "set_string" {
-  description = "(Optional) Value block with custom STRING values to be merged with the values yaml"
-  type = list(object({
-    name  = string
-    value = string
-  }))
-  default = [
-    {
-      name  = ""
-      value = ""
-    }
-  ]
-}
-
 variable "k8s_namespace" {
   description = "(Optional) Namespace to install the release into"
   type        = string
