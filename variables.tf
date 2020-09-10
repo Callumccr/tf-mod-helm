@@ -90,12 +90,14 @@ variable "password" {
 
 variable "release_name" {
   description = "(Required) Release name"
-  type        = any
+  type        = string
+  default     = ""
 }
 
 variable "chart" {
   description = "(Required) Chart name to be installed"
-  type        = any
+  type        = string
+  default     = ""
 }
 
 
