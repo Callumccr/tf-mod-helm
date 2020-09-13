@@ -47,13 +47,13 @@ variable "kubeconfig_context" {
 
 
 variable "chart_repository_name" {
-  description = "(Required) Chart repository name"
+  description = "(Optional) Chart repository name"
   type        = string
   default     = ""
 }
 
 variable "chart_repository_url" {
-  description = "(Required) Chart repository URL."
+  description = "(Optional) Chart repository URL."
   type        = string
   default     = ""
 }
@@ -97,7 +97,6 @@ variable "release_name" {
 variable "chart" {
   description = "(Required) Chart name to be installed"
   type        = string
-  default     = ""
 }
 
 
