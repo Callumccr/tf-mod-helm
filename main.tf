@@ -1,6 +1,8 @@
 data "helm_repository" "default" {
-  name = var.chart_repository_name
-  url  = var.chart_repository_url
+  name     = var.chart_repository_name
+  url      = var.chart_repository_url
+  username = var.username != "" ? var.username : ""
+  password = var.password != "" ? var.password : ""
 }
 
 resource "helm_release" "default" {
