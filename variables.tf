@@ -161,7 +161,7 @@ variable "k8s_namespace" {
 variable "verify" {
   description = "(Optional) Verify the package before installing it"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "keyring" {
