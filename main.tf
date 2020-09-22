@@ -1,20 +1,20 @@
 data "helm_repository" "default" {
-  name = var.chart_repository_name
-  url  = var.chart_repository_url
-  # username = var.username != "" ? var.username : ""
-  # password = var.password != "" ? var.password : ""
+  name     = var.chart_repository_name
+  url      = var.chart_repository_url
+  username = var.username != "" ? var.username : ""
+  password = var.password != "" ? var.password : ""
 }
 
 resource "helm_release" "default" {
-  count      = var.enabled ? 1 : 0
-  name       = var.release_name
-  repository = data.helm_repository.default.metadata[0].name
-  # repository_username = var.username != "" ? var.username : ""
-  # repository_password = var.password != "" ? var.password : ""
-  chart   = var.chart
-  devel   = var.devel
-  version = var.chart_version
-  values  = var.values
+  count               = var.enabled ? 1 : 0
+  name                = var.release_name
+  repository          = data.helm_repository.default.metadata[0].name
+  repository_username = var.username != "" ? var.username : ""
+  repository_password = var.password != "" ? var.password : ""
+  chart               = var.chart
+  devel               = var.devel
+  version             = var.chart_version
+  values              = var.values
 
   dynamic "set" {
     for_each = var.set
