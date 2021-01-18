@@ -1,19 +1,12 @@
-data "helm_repository" "default" {
-  name     = var.chart_repository_name
-  url      = var.chart_repository_url
-  username = var.username != "" ? var.username : ""
-  password = var.password != "" ? var.password : ""
-}
-
 resource "helm_release" "default" {
   count               = var.enabled ? 1 : 0
   name                = var.release_name
-  repository          = data.helm_repository.default.metadata[0].name
-  repository_username = var.username != "" ? var.username : ""
-  repository_password = var.password != "" ? var.password : ""
+  repository          = var.repository
+  repository_username = var.repository_username != "" ? var.repository_username : ""
+  repository_password = var.repository_password != "" ? var.repository_password : ""
   chart               = var.chart
   devel               = var.devel
-  version             = var.chart_version
+  version             = var.version
   values              = var.values
 
   dynamic "set" {
@@ -32,13 +25,22 @@ resource "helm_release" "default" {
     }
   }
 
-  namespace        = var.k8s_namespace
-  verify           = var.verify
-  keyring          = var.keyring
-  timeout          = var.timeout
-  disable_webhooks = var.disable_webhooks
-  reuse_values     = var.reuse_values
-  force_update     = var.force_update
-  recreate_pods    = var.recreate_pods
-  wait             = var.wait
+  namespace                  = var.k8s_namespace
+  create_namespace           = var.create_namespace
+  verify                     = var.verify
+  keyring                    = var.keyring
+  timeout                    = var.timeout
+  disable_webhooks           = var.disable_webhooks
+  reuse_values               = var.reuse_values
+  force_update               = var.force_update
+  recreate_pods              = var.recreate_pods
+  atomic                     = var.atomic
+  skip_crds                  = var.skip_crds
+  render_subchart_notes      = var.render_subchart_notes
+  disable_openapi_validation = var.disable_openapi_validation
+  wait                       = var.wait
+  dependency_update          = var.dependency_update
+  replace                    = var.replace
+  postrender                 = var.postrender
+  lint                       = var.lint
 }
