@@ -25,12 +25,6 @@ variable "aws_assume_role_arn" {
 # Variables: TF-MOD-HELM 
 # -----------------------------------------------------------------------------
 
-variable "enabled" {
-  description = "(Optional). A Switch that decides whether to create the module. Default is true"
-  type        = bool
-  default     = true
-}
-
 variable "kubeconfig_path" {
   type        = string
   default     = "~/.kube/config"
