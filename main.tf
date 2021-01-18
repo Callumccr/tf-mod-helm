@@ -6,7 +6,7 @@ resource "helm_release" "default" {
   repository_password = var.repository_password != "" ? var.repository_password : ""
   chart               = var.chart
   devel               = var.devel
-  version             = var.version
+  version             = var.chart_version
   values              = var.values
 
   dynamic "set" {
