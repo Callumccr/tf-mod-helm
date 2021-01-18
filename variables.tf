@@ -66,7 +66,7 @@ variable "chart" {
   type        = string
 }
 
-variable "version" {
+variable "chart_version" {
   description = "(Optional) Specify the exact chart version to install. If this is not specified, the latest version is installed"
   type        = string
   default     = ""
