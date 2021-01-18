@@ -41,6 +41,5 @@ resource "helm_release" "default" {
   wait                       = var.wait
   dependency_update          = var.dependency_update
   replace                    = var.replace
-  postrender                 = var.postrender
   lint                       = var.lint
 }
