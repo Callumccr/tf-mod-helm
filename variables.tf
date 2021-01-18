@@ -98,8 +98,8 @@ variable "release_name" {
 
 variable "devel" {
   description = "(Optional) Use chart development versions, too. Equivalent to version '>0.0.0-0'. If version is set, this is ignored"
-  type        = string
-  default     = ""
+  type        = bool
+  default     = false
 }
 
 variable "values" {
